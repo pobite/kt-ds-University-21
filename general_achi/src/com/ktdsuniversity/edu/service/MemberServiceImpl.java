@@ -24,4 +24,16 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.readAll();
 	}
 
+	@Override
+	public MemberVO read(int key) {
+		return memberDAO.read(key);
+	}
+	
+	public MemberVO read(String key) {
+		return memberDAO.read(key);
+	}
+	
+	
+
+
 }

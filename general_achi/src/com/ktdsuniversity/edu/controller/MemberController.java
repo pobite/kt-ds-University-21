@@ -1,5 +1,7 @@
 package com.ktdsuniversity.edu.controller;
 
+import java.util.List;
+
 import com.ktdsuniversity.edu.service.MemberService;
 import com.ktdsuniversity.edu.service.MemberServiceImpl;
 import com.ktdsuniversity.edu.service.SecondMemberServiceImpl;
@@ -9,57 +11,101 @@ public class MemberController {
 	
 	public static void main(String[] args) {
 		
-		/**
-		 * MemberServiceImpl 클래스의 객체 생성
-		 */
-		MemberService service = new MemberServiceImpl();
+		MemberService service0 = new MemberServiceImpl();
 		
 		MemberVO member = new MemberVO();
-		member.setId("id1");
-		member.setPassword("pwd1");
+		member.setId("이동학");
+		member.setPassword("123456");
 		member.setReadNumber(1);
 		member.setPageNumber(0);
-		service.create(member);
-		
-		member.setId("id2");
-		member.setPassword("pwd2");
-		member.setReadNumber(2);
-		member.setPageNumber(0);
-		service.create(member);
-		
-		member.setId("id3");
-		member.setPassword("pwd3");
-		member.setReadNumber(3);
-		member.setPageNumber(0);
-		service.create(member);
-		
-		service.readAll();
-		
+		service0.create(member);
 		
 		/**
-		 * SecondMemberServiceImpl 클래스의 객체 생성
+		 * 리스트에 조회했을 경우
 		 */
-		MemberService service2 = new SecondMemberServiceImpl();
-				
-		member.setId("id1");
-		member.setPassword("pwd1");
-		member.setReadNumber(1);
-		member.setPageNumber(0);
-		service2.create(member);
+		member = service0.read(0);
 		
-		member.setId("id2");
-		member.setPassword("pwd2");
-		member.setReadNumber(2);
-		member.setPageNumber(0);
-		service2.create(member);
+		if (member != null) {
+			System.out.println("아이디 " + member.getId());
+			System.out.println("비밀번호 " + member.getPassword());	
+		}
+
+		/**
+		 * 맵에 조회했을 경우
+		 */
+		member = service0.read("이동학");
+		System.out.println("<String으로 찾은 경우>");
+		System.out.println("아이디 " + member.getId());
+		System.out.println("비밀번호 " + member.getPassword());		
+
 		
-		member.setId("id3");
-		member.setPassword("pwd3");
-		member.setReadNumber(3);
-		member.setPageNumber(0);
-		service2.create(member);
 		
-		service2.readAll();
+//		/**
+//		 * MemberServiceImpl 클래스의 객체 생성
+//		 */
+//		MemberService service = new MemberServiceImpl();
+//		
+//		MemberVO member = new MemberVO();
+//		member.setId("id1");
+//		member.setPassword("pwd1");
+//		member.setReadNumber(1);
+//		member.setPageNumber(0);
+//		service.create(member);
+//		
+//		member = new MemberVO();
+//		member.setId("id2");
+//		member.setPassword("pwd2");
+//		member.setReadNumber(2);
+//		member.setPageNumber(0);
+//		service.create(member);
+//		
+//		member = new MemberVO();
+//		member.setId("id3");
+//		member.setPassword("pwd3");
+//		member.setReadNumber(3);
+//		member.setPageNumber(0);
+//		service.create(member);
+//		
+//		List<MemberVO> memberList = service.readAll();
+//		for (MemberVO eachMember: memberList) {
+//			System.out.println(eachMember. getId());
+//			System.out.println(eachMember. getPassword());
+//			System.out.println(eachMember. getReadNumber());
+//			System.out.println(eachMember. getPageNumber());
+//		}
 		
+//		/**
+//		 * SecondMemberServiceImpl 클래스의 객체 생성
+//		 */
+//		MemberService service2 = new SecondMemberServiceImpl();
+//		
+//		member = new MemberVO();
+//		member.setId("id1");
+//		member.setPassword("pwd1");
+//		member.setReadNumber(1);
+//		member.setPageNumber(0);
+//		service2.create(member);
+//		
+//		member = new MemberVO();
+//		member.setId("id2");
+//		member.setPassword("pwd2");
+//		member.setReadNumber(2);
+//		member.setPageNumber(0);
+//		service2.create(member);
+//		
+//		member = new MemberVO();
+//		member.setId("id3");
+//		member.setPassword("pwd3");
+//		member.setReadNumber(3);
+//		member.setPageNumber(0);
+//		service2.create(member);
+//		
+//		memberList = service2.readAll();
+//		for (MemberVO eachMember: memberList) {
+//			System.out.println(eachMember. getId());
+//			System.out.println(eachMember. getPassword());
+//			System.out.println(eachMember. getReadNumber());
+//			System.out.println(eachMember. getPageNumber());
+//		}
 	}
 }

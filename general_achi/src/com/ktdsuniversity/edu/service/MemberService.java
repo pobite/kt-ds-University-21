@@ -9,5 +9,8 @@ public interface MemberService {
 	public boolean create(MemberVO memberVO);
 	
 	public List<MemberVO> readAll();
-
+	
+	public MemberVO read(int key);
+	
+	public MemberVO read(String key);
 }

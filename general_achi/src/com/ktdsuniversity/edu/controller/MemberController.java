@@ -1,42 +1,50 @@
 package com.ktdsuniversity.edu.controller;
 
-import java.util.List;
-
 import com.ktdsuniversity.edu.service.MemberService;
 import com.ktdsuniversity.edu.service.MemberServiceImpl;
-import com.ktdsuniversity.edu.service.SecondMemberServiceImpl;
 import com.ktdsuniversity.edu.vo.MemberVO;
 
 public class MemberController {
 	
 	public static void main(String[] args) {
 		
-		MemberService service0 = new MemberServiceImpl();
-		
-		MemberVO member = new MemberVO();
-		member.setId("이동학");
-		member.setPassword("123456");
-		member.setReadNumber(1);
-		member.setPageNumber(0);
-		service0.create(member);
-		
-		/**
-		 * 리스트에 조회했을 경우
-		 */
-		member = service0.read(0);
-		
-		if (member != null) {
-			System.out.println("아이디 " + member.getId());
-			System.out.println("비밀번호 " + member.getPassword());	
+		try {
+			int number = Integer.parseInt("ABC");
+			System.out.println(number);
 		}
-
-		/**
-		 * 맵에 조회했을 경우
-		 */
-		member = service0.read("이동학");
-		System.out.println("<String으로 찾은 경우>");
-		System.out.println("아이디 " + member.getId());
-		System.out.println("비밀번호 " + member.getPassword());		
+		catch (NumberFormatException e) {
+			System.out.println("에러가 발생했습니다." + e.getMessage());
+			e.printStackTrace();
+		}
+		System.out.println("111");
+		
+		
+//		MemberService service0 = new MemberServiceImpl();
+//		
+//		MemberVO member = new MemberVO();
+//		member.setId("이동학");
+//		member.setPassword("123456");
+//		member.setReadNumber(1);
+//		member.setPageNumber(0);
+//		service0.create(member);
+//		
+//		/**
+//		 * 리스트에 조회했을 경우
+//		 */
+//		member = service0.read(0);
+//		
+//		if (member != null) {
+//			System.out.println("아이디 " + member.getId());
+//			System.out.println("비밀번호 " + member.getPassword());	
+//		}
+//
+//		/**
+//		 * 맵에 조회했을 경우
+//		 */
+//		member = service0.read("이동학");
+//		System.out.println("<String으로 찾은 경우>");
+//		System.out.println("아이디 " + member.getId());
+//		System.out.println("비밀번호 " + member.getPassword());		
 
 		
 		

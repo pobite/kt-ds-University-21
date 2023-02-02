@@ -28,20 +28,10 @@ public class MapMemberDAOImpl implements MemberDAO {
 						.map(entry -> entry.getValue())
 						.collect(Collectors.toList());
 	}
-
+	
 	@Override
-	public MemberVO read(int key) {
-		return null;
-	}
-	
-	
-	// overloading
 	public MemberVO read(String key) {
-		
-		if (dataSource.containsKey(key)) {
-			return dataSource.get(key);
-		}
-		return null;
+		return dataSource.get(key);
 	}
 	
 }

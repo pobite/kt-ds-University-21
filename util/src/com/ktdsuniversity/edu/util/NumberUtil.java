@@ -33,7 +33,6 @@ public abstract class NumberUtil {
 	}
 	
 	public static short toShort(String string, short defaultValue) {
-		
 		try {
 			return Short.parseShort(string);
 		}
@@ -42,8 +41,17 @@ public abstract class NumberUtil {
 		}
 	}
 	
+	public static int toInt(String string) {
+		try {
+			return Integer.parseInt(string);
+		}
+		catch (NumberFormatException nfe) {
+			return 0;
+		}
+	}
+	
+	
 	public static int toInt(String string, int defaultValue) {
-		
 		try {
 			return Integer.parseInt(string);
 		}
@@ -52,8 +60,17 @@ public abstract class NumberUtil {
 		}
 	}
 	
+	public static long toLong(String string) {
+		try {
+			return Long.parseLong(string);			
+		}
+		catch (NumberFormatException nfe) {
+			return 0;
+		}
+	}
+	
+	
 	public static long toLong(String string, long defaultValue) {
-		
 		try {
 			return Long.parseLong(string);
 		}
@@ -62,8 +79,16 @@ public abstract class NumberUtil {
 		}
 	}
 	
+	public static float toFloat(String string) {
+		try {
+			return Float.parseFloat(string);
+		}
+		catch (NumberFormatException nfe) {
+			return 0;
+		}
+	}
+	
 	public static float toFloat(String string, float defaultValue) {
-		
 		try {
 			return Float.parseFloat(string);
 		}
@@ -72,8 +97,16 @@ public abstract class NumberUtil {
 		}
 	}
 	
+	public static double toDouble(String String) {
+		try {
+			return Double.parseDouble(String);
+		}
+		catch (NumberFormatException nfe) {
+			return 0.0;
+		}
+	}
+	
 	public static double toDouble(String string, double defaultValue) {
-		
 		try {
 			return Double.parseDouble(string);
 		}
@@ -81,6 +114,4 @@ public abstract class NumberUtil {
 			return defaultValue;
 		}
 	}
-	
-
 }

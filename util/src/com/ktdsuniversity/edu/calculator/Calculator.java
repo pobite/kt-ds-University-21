@@ -12,7 +12,7 @@ public class Calculator {
 		String string = scanner.nextLine();
 		
 		// byte로 변경
-		byte b = NumberUtil.toByte(string);
+		byte b = NumberUtil.toByte(string, (byte)99);
 		System.out.println(b);
 	}	
 }

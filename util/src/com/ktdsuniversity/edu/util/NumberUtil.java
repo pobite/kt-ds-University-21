@@ -12,5 +12,16 @@ public abstract class NumberUtil {
 			return 0;
 		}
 	}
-
+	
+	public static byte toByte(String string, byte defaultValue) {
+		try {
+			return Byte.parseByte(string);
+		}
+		catch (NumberFormatException nfe) {
+			return defaultValue;
+		}
+	}
+	
+	
+	
 }

@@ -7,8 +7,6 @@ import java.util.List;
 
 public class CSV {
 	
-	
-
 	public static void main(String[] args) {
 		
 		// 파일을 읽어 온다.

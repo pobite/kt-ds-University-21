@@ -1,5 +1,8 @@
 package com.ktdsuniversity.edu.test;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class test {
 	
 	public static void main(String[] args) {
@@ -111,9 +114,7 @@ public class test {
 		String day = str.substring(8);
 		System.out.println(day);
 		
-		
-		
-		
+
 		/*
 		 * test
 		 * 문자열 자르기 .substring(p, p)
@@ -125,8 +126,36 @@ public class test {
 		System.out.println(day);
 		
 		
+		/*
+		 * 문자열 자르기 .substring(p,p)
+		 * 자르려는 인덱스는 +1 해야 함.
+		 */
+		str = "2023-02-03 11:01:15";
+		
+		String year = str.substring(0, 4);
+		String hour = str.substring(11, 13);
+		String minute = str.substring(14, 16);
+		String second = str.substring(17, 19);
+		System.out.println(year);
+		System.out.println(hour);
+		System.out.println(minute);
+		System.out.println(second);
 		
 		
+		/*
+		 * 문자열 특정 단어 및 기호 등으로 자르기 .split
+		 */
+		str = "자전거 , 거중기 , 기러기";
+		
+		// split은 배열을 리턴하는데 배열은 피하는 게 좋음
+		// Arrays.asList 배열이 리스트로 바뀜
+		List<String> wordList = Arrays.asList(str.split(","));	
+		for (String word: wordList) {
+			System.out.println(word.trim());
+		}
+		
+		
+
 		
 	}	
 }

@@ -9,11 +9,11 @@ public class GameTeacherCatch {
 	
 	public static void checkWord(String word, String startLetter) {
 		//경우에 따라 예외를 분류해서 던짐
-		if (word.length() < 3) {
-			throw new InvalidWordException();
-		}
-		else if (!word.startsWith(startLetter) || word.equals("포기")) {
+		if (!word.startsWith(startLetter) || word.equals("포기")) {
 			throw new WrongWordException();
+		}
+		else if (word.length() < 3) {
+			throw new InvalidWordException();
 		}
 	}
 	
@@ -38,17 +38,20 @@ public class GameTeacherCatch {
 			word = word.trim();
 			word = word.replace(" ", "");
 			
-			if (!word.startsWith(startLetter) || word.equals("포기")) {
-				System.out.println("\"" + word + "\" 를 입력했습니다.");
-				System.out.println("게임이 종료됩니다.");
-				break;
-			}
-			else if (word.length() < 3) {
-				System.out.println("\"" + word + "\"는 " + word.length() + "글자입니다. 3글자 이상 단어를 입력하세요.");
-			}
-			else {
+			try {
+				checkWord(word, startLetter);
 				wordList.add(word);
 				startLetter = word.substring(word.length() - 1);
+			}
+			// catch 두 개 잡아야 함.
+			// 두 개의 예외를 던지기 때문.
+			catch (InvalidWordException iwe) {
+				System.out.println(word + "는 " + word.length() + "자리 단어입니다.");
+				System.out.println("3자리 이상의 단어를 입력하세요.");
+			}
+			catch (WrongWordException wwe) {
+				System.out.println(word + " 을 입력했습니다. 게임을 종료합니다.");
+				break;
 			}
 		}
 		
@@ -58,5 +61,4 @@ public class GameTeacherCatch {
 		}
 		System.out.println("입니다.");		
 	}
-
 }

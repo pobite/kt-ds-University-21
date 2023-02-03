@@ -154,8 +154,44 @@ public class test {
 			System.out.println(word.trim());
 		}
 		
+		// 날짜를 split 하기
+		// 정규 표현식 범위에 넣어서
+		str = "2023-02-22 11:22:34";
+		List<String> dateList = Arrays.asList( str.split("[- :]") );
+		for (String dateItem: dateList) {
+			System.out.println(dateItem);
+		}
 		
-
+		
+		/*
+		 * URL 자르기 연습
+		 * 특수문자를 기준으로 자르기
+		 */
+		String url = "https://www.google.co.kr";
+	
+		System.out.println(url.indexOf("://"));
+		
+		// protocol
+		String protocol = url.substring(0, url.indexOf("://"));
+		System.out.println("\nProdocol: " + protocol);
+		
+		// subDomain
+		String subDomain = url.substring(url.indexOf("://") + "://".length(), url.indexOf("."));
+		System.out.println("Sub domain: " + subDomain);
+		
+		// domain
+		String domain = url.substring(url.indexOf(subDomain) + subDomain.length() + 1);
+		domain = domain.substring(0, domain.indexOf("."));
+		System.out.println("Domain: " + domain);
+		
+		// companyCode
+		String companyCode = url.substring(url.indexOf(domain) + domain.length() + 1);
+		companyCode = companyCode.substring(0, companyCode.indexOf("."));
+		System.out.println("Company code: " + companyCode);
+		
+		// nationCode
+		String nationCode = url.substring(url.lastIndexOf(".") + 1);
+		System.out.println("Nation code: " + nationCode);
 		
 	}	
 }

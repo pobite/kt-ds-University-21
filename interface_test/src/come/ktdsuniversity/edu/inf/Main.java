@@ -29,8 +29,6 @@ public class Main {
 //		System.out.println(calculator3.sum(10, 20));
 //		System.out.println(calculator3.minus(40, 3));
 	
-		
-
-		
+	
 	}
 }

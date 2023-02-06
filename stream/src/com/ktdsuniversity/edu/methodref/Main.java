@@ -37,8 +37,7 @@ public class Main {
 			    new NumberVO(7),
 			    new NumberVO(8),
 			    new NumberVO(9),
-		        new NumberVO(10)), (numberVO) -> numberVO.isEven());	//이것도 가능
-					
+		        new NumberVO(10)), (numberVO) -> numberVO.isEven());	//이것도 가능			
 	}
 	
 }

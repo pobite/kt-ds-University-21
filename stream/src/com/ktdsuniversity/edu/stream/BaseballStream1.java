@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class BaseballStream1 {
@@ -137,5 +138,142 @@ public class BaseballStream1 {
 				System.out.println(allStarVO.getTeamID());
 				System.out.println(allStarVO.getGP());
 			});
+		
+		
+		System.out.println("-----------------------------------------------------------------");
+
+		List<String> playerNameList = list.stream()
+										  .map( (allStarVO) -> allStarVO.getPlayerID() )
+										  .distinct()	// 중복제거
+										  .sorted()		// 정렬
+										  .collect(Collectors.toList());
+		
+		playerNameList.forEach(System.out::println);
+		
+		
+		System.out.println("-----------------------------------------------------------------");
+
+		/**
+		 * 실습
+		 * StartingPos == 4인 데이터들의 playerID만 추출
+		 * 중복을 제거하고 정렬
+		 */
+		
+		List<String> playerNameList2 = list.stream()
+										   .filter( (allStarVO) -> allStarVO.getStartingPos() == 4)
+										   .map( (allStarVO) -> allStarVO.getPlayerID())
+										   .distinct()
+										   .sorted()
+										   .collect(Collectors.toList());
+		
+		playerNameList2.forEach(System.out::println);
+		
+		
+		System.out.println("-----------------------------------------------------------------");
+
+		/**
+		 * 문제
+		 * 307 또는 NLS
+		 */
+	
+		long cnt=list.stream()
+			.filter( (allStarVO) -> allStarVO.getGameID().contains("307") ||
+			 allStarVO.getGameID().toUpperCase().contains("NLS"))
+			.map((allStarVO) -> allStarVO.getPlayerID())
+			.distinct()
+			.sorted()
+			.peek(System.out::println)
+			.count();
+		
+		System.out.println(cnt);
+		
+		
+	
+		/**
+		 * 문제 연습
+		 */
+	
+		// 1. gameNum 이 0이 아닌 것을 출력해보세요.
+		
+		List<AllStarFullVO> allStarVO = list.stream()
+											.filter( (vo3) -> vo3.getGameNum() != 0)
+											.collect(Collectors.toList());
+		
+		allStarVO.forEach(vo3 -> {
+			System.out.println(vo3.getPlayerID());
+			System.out.println(vo3.getGameNum());
+		});
+		
+		
+		System.out.println("-----------------------------------------------------------------");
+
+		// 2. gameNum 이 0인 것만 추출해 출력하세요.
+		List<AllStarFullVO> allStarZeroVO = list.stream()
+												.filter( (vo4) -> vo4.getGameNum() == 0)
+												.collect(Collectors.toList());
+		
+		allStarZeroVO.forEach( (vo4) -> {
+			System.out.println(vo4.getPlayerID());
+			System.out.println(vo4.getGameNum());
+		});
+		
+		
+		System.out.println("-----------------------------------------------------------------");
+		
+		// 3. 1950년대에 플레이한 선수의 이름만 출력하세요.
+		
+		list.stream()
+			.filter( (vo5) -> vo5.getYear().startsWith("195"))
+			.map( (vo5) -> vo5.getPlayerID())
+			.forEach(System.out::println);
+		
+			
+		System.out.println("-----------------------------------------------------------------");
+
+		// 4. 2000년대 BOS 팀의 선수 이름을 중복 제거한 후 출력하세요.
+		
+		list.stream()
+			.filter( (vo6) -> vo6.getYear().startsWith("200"))
+			.filter( (vo6) -> vo6.getTeamID().equals("BOS"))
+//			.map( (vo6) -> vo6.getPlayerID())
+			// 비교 연산 하는 게 아니면 메소드 레퍼런스 쓸 수 있음
+			.map( AllStarFullVO::getPlayerID)
+			.distinct()
+			.forEach(System.out::println);
+		
+		
+		System.out.println("-----------------------------------------------------------------");
+
+		
+		// 5.1937년 DET 팀의 선수 중 첫 번째 선수 이름을 출력하세요.
+		
+		AllStarFullVO firstPlayer = list.stream()
+										.filter( (vo7) -> vo7.getYear().equals("1937"))
+										.filter( (vo7) -> vo7.getTeamID().equals("DET"))
+										.findFirst()
+										.orElse(new AllStarFullVO());
+			
+		System.out.println(firstPlayer.getPlayerID());
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
 	}	
 }

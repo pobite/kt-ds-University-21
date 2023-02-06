@@ -86,5 +86,22 @@ public class BaseballStream1 {
 		    .forEach( (allStarVO) -> {
 		    	System.out.println(allStarVO.getPlayerID());
 	     }) ;
-	}
+		
+		System.out.println("-----------------------------------------------------------------");
+
+		/**
+		 * 2004년도 경기에서 팀명이 텍사스
+		 * 데이터를 최대한 많이 줄일 수 있는 쪽으로 필터링 시작
+		 * 여기서는 2004년부터 필터링
+		 * 논리 연산 가능하나, 논리 연산 하면 처음부터 끝까지 다 검색해야 됨.
+		 */
+		list.stream()
+			.filter( (allStarVO) -> allStarVO.getYear().equals("2004"))
+			.filter( (allStarVO) -> allStarVO.getTeamID().equals("TEX"))
+			.forEach( (allStarVO) -> {
+				System.out.println(allStarVO.getPlayerID());
+				System.out.println(allStarVO.getYear());
+				System.out.println(allStarVO.getTeamID());
+			} );
+	}	
 }

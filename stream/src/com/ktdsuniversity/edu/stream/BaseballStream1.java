@@ -103,5 +103,39 @@ public class BaseballStream1 {
 				System.out.println(allStarVO.getYear());
 				System.out.println(allStarVO.getTeamID());
 			} );
+
+		
+		System.out.println("-----------------------------------------------------------------");
+
+		/**
+		 * startingPos == 0만 출력
+		 */
+		list.stream()
+			.filter( (allStarVO) -> allStarVO.getStartingPos() == 0)
+			.forEach( (allStarVO) -> {
+				System.out.println(allStarVO.getPlayerID());
+				System.out.println(allStarVO.getYear());
+				System.out.println(allStarVO.getTeamID());
+				System.out.println(allStarVO.getStartingPos());
+			});
+
+		
+		System.out.println("-----------------------------------------------------------------");
+		
+		/**
+		 * GP == 0 && TeamId == NYA && playerId에 fo 포함
+		 * 
+		 */
+		list.parallelStream()
+			.filter( (allStarVO) -> allStarVO.getGP() == 0)
+			.filter( (allStarVO) -> allStarVO.getTeamID().equalsIgnoreCase("NYA"))
+//			.filter( (allStarVO) -> allStarVO.getPlayerID().toLowerCase().contains("fo"))
+			.filter( (allStarVO) -> allStarVO.getPlayerID().toLowerCase().indexOf("fo") != -1)
+			.forEach( (allStarVO) -> {
+				System.out.println(allStarVO.getPlayerID());
+				System.out.println(allStarVO.getYear());
+				System.out.println(allStarVO.getTeamID());
+				System.out.println(allStarVO.getGP());
+			});
 	}	
 }

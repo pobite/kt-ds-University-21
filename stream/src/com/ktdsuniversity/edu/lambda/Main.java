@@ -1,5 +1,8 @@
 package com.ktdsuniversity.edu.lambda;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Main {
 	
 	public static void print(Printable printable) {
@@ -40,8 +43,23 @@ public class Main {
 
 		// 아래 것은 System.out.println도 리턴 타입이 void라 문제 안 생김.
 		print( (data) -> System.out.println(data + "입니다."));
+		
+		print( System.out::println );
+
 		print( (data) -> {
 			System.out.println(data + "입니다.");
 		});
+		
+		
+		// 자바9부터 들어간 기술
+		List<Integer> intList = List.of(10, 20, 30, 40, 50);
+		
+		//자바8도 비슷한 기술
+		List<Integer> intList2 = Arrays.asList(10, 20, 30, 40);
+		
+		intList.forEach(System.out::println);
+		intList2.forEach(System.out::println);
+		
+		
 	}
 }

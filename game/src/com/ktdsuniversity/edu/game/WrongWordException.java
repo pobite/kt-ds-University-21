@@ -13,6 +13,4 @@ public class WrongWordException extends RuntimeException {
 		super();
 	}
 	
-	
-	
 }

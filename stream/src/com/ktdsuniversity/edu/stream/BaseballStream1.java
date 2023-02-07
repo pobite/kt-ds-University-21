@@ -256,24 +256,5 @@ public class BaseballStream1 {
 		System.out.println(firstPlayer.getPlayerID());
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
 	}	
 }

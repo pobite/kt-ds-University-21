@@ -35,7 +35,7 @@ public class Main {
 		
 		
 		/*
-		 * void 타입을 람다로
+		 * void 타입을 람다로.
 		 */
 		
 		// 리턴 타입이라 이렇게 못 씀.

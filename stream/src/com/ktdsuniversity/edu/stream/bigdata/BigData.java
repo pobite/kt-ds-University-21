@@ -1,4 +1,4 @@
-package com.ktdsuniversity.edu.stream;
+package com.ktdsuniversity.edu.stream.bigdata;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import com.ktdsuniversity.edu.stream.baseball.AllStarFullVO;
 
 public class BigData {
 
-	public static List<AllStarFullVO> readAllStarFull() {
+	
 	
 	public static void main(String[] args) {
 		

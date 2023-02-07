@@ -1,11 +1,38 @@
 package com.ktdsuniversity.edu.stream.bigdata;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-import com.ktdsuniversity.edu.stream.baseball.AllStarFullVO;
-
-public class BigData {
-
+public class BigdataStream1 {
+	
+	public static List<TextVO> readTextFile() {
+		String filePath = "C:\\Devs\\data\\bigdata\\10K.ID.CONTENTS";
+		
+		List<TextVO> list;
+		try {
+			list = Files.readAllLines(Paths.get(filePath))
+					.parallelStream()
+					.map( (line) -> {
+						String[] strArr = line.split("\t");
+						TextVO vo = new TextVO();
+						if (strArr.length >= 2) {
+							vo.setValue(strArr[1].trim());
+						}
+						return vo;
+					})
+					.collect(Collectors.toList());
+			return list;
+		} catch (IOException ioe) {
+			return new ArrayList<>();
+		}
+		
+	}
+	
+	
 	
 	
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.ktdsuniversity.edu.stream;
+package com.ktdsuniversity.edu.stream.baseball;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -157,14 +157,14 @@ public class BaseballStream2 {
 //												   // DB에서 말하는 join
 //												   // AllStar.csv 와 Manager.csv를 join한 개념
 //												   String path = "C:\\Devs\\data\\baseball\\core\\Managers.csv";
+//												   String searchTeamId = "," + teamID + ",";
 //												   try {
 //													   return Files.readAllLines(Paths.get(path))
 //													   .stream()
 //													   .filter( line -> {
-//														   
-//														   String[] arr = line.split(",");
-//														   arr[2].equals(teamID);
-//														   arr[0];
+//														  line.contains(searchTeamId)
+//													   		  .map(split )
+//														  
 //													   } )
 //												   }
 //												   // 최종함수가 없으니깐 stream
@@ -172,7 +172,7 @@ public class BaseballStream2 {
 //													   return Stream.empty();
 //												   } 
 //											   });
-		
+//		
 											   
 		/**
 		 * 5-1. 1933년에 출전항 TeamID별 playerId를 모두 출력. (group)

@@ -150,29 +150,26 @@ public class BaseballStream2 {
 		 * 무조건 flat맵 사용
 		 */
 		
-//		Optional<String> managerPlayerId = list.stream()
-//											   .filter( vo -> vo.getPlayerID().equals("gomezle01"))
-//											   .map( vo -> vo.getTeamID())
-//											   .flatMap( teamID -> {
-//												   // DB에서 말하는 join
-//												   // AllStar.csv 와 Manager.csv를 join한 개념
-//												   String path = "C:\\Devs\\data\\baseball\\core\\Managers.csv";
-//												   String searchTeamId = "," + teamID + ",";
-//												   try {
-//													   return Files.readAllLines(Paths.get(path))
-//													   .stream()
-//													   .filter( line -> {
-//														  line.contains(searchTeamId)
-//													   		  .map(split )
-//														  
-//													   } )
-//												   }
-//												   // 최종함수가 없으니깐 stream
-//												   catch (IOException ioe) {
-//													   return Stream.empty();
-//												   } 
-//											   });
-//		
+		String managerPlayerId = list.stream()
+											   .filter( vo -> vo.getPlayerID().equals("gomezle01"))
+											   .map( vo -> vo.getTeamID())
+											   .flatMap( teamID -> {
+												   // DB에서 말하는 join
+												   // AllStar.csv 와 Manager.csv를 join한 개념
+												   String path = "C:\\Devs\\data\\baseball\\core\\Managers.csv";
+												   String searchTeamId = "," + teamID + ",";
+												   try {
+													   return Files.readAllLines(Paths.get(path))
+																		   .stream()
+																		   .filter( line -> line.contains(searchTeamId))
+																		   .map(line -> line.split(",")[0]);
+												   // 최종함수가 없으니깐 stream
+												   } catch (IOException ioe) {
+													   ioe.printStackTrace();
+													   return Stream.empty();
+												   } 
+											   }).findFirst().orElse("");
+		
 											   
 		/**
 		 * 5-1. 1933년에 출전항 TeamID별 playerId를 모두 출력. (group)

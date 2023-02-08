@@ -1,6 +1,6 @@
 package com.ktdsuniversity.edu.practice;
 
-public class Array {
+public class ArrayTest {
 
 	
 	public static void main(String[] args) {
@@ -46,7 +46,7 @@ public class Array {
 		System.out.println(scores2);
 		System.out.println(subject);
 		System.out.println(str);
-	
+		
 		// 배열은 레퍼런스 타입이다
 		
 		System.out.println(scores.length);
@@ -60,6 +60,8 @@ public class Array {
 		System.out.println(scores[2]);
 		System.out.println(scores[3]);
 		
+		int total = scores[0] + scores[1] + scores[2] + scores[3];
+		System.out.println(total);
 		
 	}
 }

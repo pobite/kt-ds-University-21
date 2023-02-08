@@ -5,36 +5,14 @@ import java.util.Scanner;
 
 import com.ktdsuniversity.edu.cafe.menu.mgnt.service.MenuMgntService;
 import com.ktdsuniversity.edu.cafe.menu.mgnt.service.MenuMgntServiceImpl;
+import com.ktdsuniversity.edu.cafe.menu.mgnt.util.MenuMgntUtil;
 
 public class MenuMgntController {
 
-		public void printMenu() {
-			System.out.println("\n============================\r\n"
-					+ "1. 등록\r\n"
-					+ "2. 수정\r\n"
-					+ "3. 삭제\r\n"
-					+ "4. 조회(1개)\r\n"
-					+ "5. 조회(종목별로)\r\n"
-					+ "6. 조회(전체)\r\n"
-					+ "7. 종료\r\n"
-					+ "============================\n");
-		}
-		
-		public void printItemTypeMenu() {
-			System.out.println("\n============================\r\n"
-					+ "1. 커피\r\n"
-					+ "2. 음료\r\n"
-					+ "3. 티\r\n"
-					+ "4. 디저트\r\n"
-					+ "5. 뒤로가기\r\n"
-					+ "============================\n");
-		}
-		
+
 		public static void main(String[] args) {
 			
 		MenuMgntService service = new MenuMgntServiceImpl();
-		MenuMgntController control = new MenuMgntController();
-		
 		
 		/**
 		 * 1. 등록
@@ -57,7 +35,7 @@ public class MenuMgntController {
 		while(true) {
 			System.out.println("메뉴를 입력하세요(숫자): ");
 			
-			control.printMenu();
+			MenuMgntUtil.printMenu();
 			
 			/**
 			 * 고객에게 값 입력 받아 menu에 저장
@@ -70,7 +48,7 @@ public class MenuMgntController {
 			 */
 			if (menu == 1) {
 				
-				control.printItemTypeMenu();
+				MenuMgntUtil.printItemTypeMenu();
 				System.out.println("등록할 메뉴 타입을 입력하세요(숫자):");
 				
 				/**
@@ -102,7 +80,7 @@ public class MenuMgntController {
 			 */
 			else if (menu == 2) {
 				
-				control.printItemTypeMenu();
+				MenuMgntUtil.printItemTypeMenu();
 				System.out.println("수정할 메뉴 타입을 입력하세요:");
 				
 				/**

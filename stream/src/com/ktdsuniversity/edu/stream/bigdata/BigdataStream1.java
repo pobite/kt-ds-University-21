@@ -115,9 +115,9 @@ public class BigdataStream1 {
 		System.out.println("10 실행시간: " + (System.currentTimeMillis() - startTime));
 
 		
-		
-		
-		
+		/**
+		 * 공백 처리 정리
+		 */
 	  
 	    String abc = null;
 		/**
@@ -126,19 +126,18 @@ public class BigdataStream1 {
 		 * abc =" " -> false
 		 * abc= "aaa" ->false
 		 */
-	    boolean isEmpty1 = abc == null || abc.length() == 0;
+	    boolean isEmpty1 = abc == null || abc.length() == 0;	// 에러X
 	   
 	    /**
 	     * abc = null -> true
 	     * abc = "" -> true
-	     * abc = " " -> true
+	     * abc = " " -> true	// 회사 기준에 따라 trim을 할 지 안 할지 정함!
 	     * abc = "aaa" -> false
 	     */
 	    
-//	    boolean isEmpty2 = abc.length() == 0 || abc == null;
-	    // 질문하기!!
+	    boolean isEmpty2 = abc.length() == 0 || abc == null;	// 에러
 	    
-	    // 둘다 맞고 틀리고는 없으며, 팀에서 팀장이 기준을 정해줌.
+	    // trim()으로 공백 처리하는 건, 팀장이 기준을 정해줌.
 
 	     
 	    /**
@@ -153,15 +152,12 @@ public class BigdataStream1 {
 //
 //		// 에러 발생
 //		boolean isEmpty5 = abc == null && abc.trim().length() == 0;
-//
 //			   
 //		// And 연산에서 비어있다는 판단 이렇게.
 //		boolean isEmpty6 = !(abc != null && abc.trim().length() > 0);
 	   
 							  
 							  
-
-		
 		/**
 		 * 11. (병렬) 10K.ID.CONTENTS 파일에서 두 개의 단어로만 이루어진 "번호"는 몇 개인지 출력
 		 * 스페이스로 잘라서 2개인지 체크
@@ -251,8 +247,8 @@ public class BigdataStream1 {
 		readTextFile().parallelStream()
 					  .filter( vo -> vo.getKey().startsWith("9"))
 					  .map( vo -> vo.getValue() == null ? "" : vo.getValue())
-					  .map( desc -> desc.trim().contains(" ") ? desc.split(" ")[0] : "")
-					  .forEach(System.out::println);
+					  .map( desc -> desc.contains(" ") ? desc.split(" ")[0] : "")
+					  .forEach(System.out::println); 
 		
 		// 교수님 풀이 2
 		readTextFile().parallelStream()

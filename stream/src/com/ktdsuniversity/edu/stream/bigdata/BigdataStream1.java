@@ -108,7 +108,7 @@ public class BigdataStream1 {
 		System.out.print("10. ");
 		
 		long cnt = readTextFile().parallelStream()
-								 .filter( vo -> vo.getValue() == null || vo.getValue() == "")
+								 .filter( vo -> vo.getValue() == null || vo.getValue().trim() == "")
 								 .count();
 		
 		System.out.println(cnt);
@@ -126,7 +126,7 @@ public class BigdataStream1 {
 		 * abc =" " -> false
 		 * abc= "aaa" ->false
 		 */
-	    boolean isEmpty1 = abc == null || abc.length() == 0;	// 에러X
+//	    boolean isEmpty1 = abc == null || abc.length() == 0;	// 에러X
 	   
 	    /**
 	     * abc = null -> true
@@ -135,7 +135,7 @@ public class BigdataStream1 {
 	     * abc = "aaa" -> false
 	     */
 	    
-	    boolean isEmpty2 = abc.length() == 0 || abc == null;	// 에러
+//	    boolean isEmpty2 = abc.length() == 0 || abc == null;	// 에러
 	    
 	    // trim()으로 공백 처리하는 건, 팀장이 기준을 정해줌.
 

@@ -11,6 +11,4 @@ public class MenuMgntVO {
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
-	
-	
 }

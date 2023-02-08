@@ -10,102 +10,104 @@ public class MenuMgntController {
 
 		public void printMenu() {
 			System.out.println("\n============================\r\n"
-					+ "1. µî·Ï\r\n"
-					+ "2. ¼öÁ¤\r\n"
-					+ "3. »èÁ¦\r\n"
-					+ "4. Á¶È¸(1°³)\r\n"
-					+ "5. Á¶È¸(Á¾¸ñº°·Î)\r\n"
-					+ "6. Á¶È¸(ÀüÃ¼)\r\n"
-					+ "7. Á¾·á\r\n"
+					+ "1. ë“±ë¡\r\n"
+					+ "2. ìˆ˜ì •\r\n"
+					+ "3. ì‚­ì œ\r\n"
+					+ "4. ì¡°íšŒ(1ê°œ)\r\n"
+					+ "5. ì¡°íšŒ(ì¢…ëª©ë³„ë¡œ)\r\n"
+					+ "6. ì¡°íšŒ(ì „ì²´)\r\n"
+					+ "7. ì¢…ë£Œ\r\n"
 					+ "============================\n");
 		}
 		
 		public void printItemTypeMenu() {
 			System.out.println("\n============================\r\n"
-					+ "1. Ä¿ÇÇ\r\n"
-					+ "2. À½·á\r\n"
-					+ "3. Æ¼\r\n"
-					+ "4. µğÀúÆ®\r\n"
-					+ "5. µÚ·Î°¡±â\r\n"
+					+ "1. ì»¤í”¼\r\n"
+					+ "2. ìŒë£Œ\r\n"
+					+ "3. í‹°\r\n"
+					+ "4. ë””ì €íŠ¸\r\n"
+					+ "5. ë’¤ë¡œê°€ê¸°\r\n"
 					+ "============================\n");
 		}
 		
 		public static void main(String[] args) {
 			
 		MenuMgntService service = new MenuMgntServiceImpl();
+		MenuMgntController control = new MenuMgntController();
+		
 		
 		/**
-		 * 1. µî·Ï
-		 * 2. ¼öÁ¤
-		 * 3. »èÁ¦
-		 * 4. Á¶È¸(1°³)
-		 * 5. Á¶È¸(Á¾·ùº°·Î)
-		 * 6. Á¶È¸(ÀüÃ¼)
-		 * 7. Á¾·á
+		 * 1. ë“±ë¡
+		 * 2. ìˆ˜ì •
+		 * 3. ì‚­ì œ
+		 * 4. ì¡°íšŒ(1ê°œ)
+		 * 5. ì¡°íšŒ(ì¢…ë¥˜ë³„ë¡œ)
+		 * 6. ì¡°íšŒ(ì „ì²´)
+		 * 7. ì¢…ë£Œ
 		 */
 		
 		Scanner scan = new Scanner(System.in);
 		
 		/**
-		 * ÀÎ»ñ¸» ÇÑ ¹ø¸¸ ½ÇÇà
+		 * ì¸ì‚¿ë§ í•œ ë²ˆë§Œ ì‹¤í–‰
 		 */
 		System.out.println("Cafe Menu Management System");
 		
 		
 		while(true) {
-			System.out.println("¸Ş´º¸¦ ÀÔ·ÂÇÏ¼¼¿ä(¼ıÀÚ): ");
+			System.out.println("ë©”ë‰´ë¥¼ ì…ë ¥í•˜ì„¸ìš”(ìˆ«ì): ");
 			
-			printMenu();
+			control.printMenu();
 			
 			/**
-			 * °í°´¿¡°Ô °ª ÀÔ·Â ¹Ş¾Æ menu¿¡ ÀúÀå
+			 * ê³ ê°ì—ê²Œ ê°’ ì…ë ¥ ë°›ì•„ menuì— ì €ì¥
 			 */
 			int menu = scan.nextInt();
-			scan.nextLine();	// Enter¸¦ ¹«½Ã
+			scan.nextLine();	// Enterë¥¼ ë¬´ì‹œ
 			
 			/**
-			 * µî·Ï
+			 * ë“±ë¡
 			 */
 			if (menu == 1) {
 				
-				printItemTypeMenu();
-				System.out.println("µî·ÏÇÒ ¸Ş´º Å¸ÀÔÀ» ÀÔ·ÂÇÏ¼¼¿ä(¼ıÀÚ):");
+				control.printItemTypeMenu();
+				System.out.println("ë“±ë¡í•  ë©”ë‰´ íƒ€ì…ì„ ì…ë ¥í•˜ì„¸ìš”(ìˆ«ì):");
 				
 				/**
-				 * key: °í°´ÀÇ ÀÔ·Â °ª
-				 * ÇØ´ç key·Î À½·á ¼±º°.
+				 * key: ê³ ê°ì˜ ì…ë ¥ ê°’
+				 * í•´ë‹¹ keyë¡œ ìŒë£Œ ì„ ë³„.
 				 */
 				int type = scan.nextInt();
 				scan.nextLine();
 				
 				/**
-				 * µÚ·Î°¡±â: 1~4 ÀÌ¿ÜÀÇ ¼ıÀÚ ÀÔ·Â ½Ã
+				 * ë’¤ë¡œê°€ê¸°: 1~4 ì´ì™¸ì˜ ìˆ«ì ì…ë ¥ ì‹œ
 				 */
 				if (type < 1 || type > 4) {
 					continue;
 				}
 				
-				System.out.println("µî·ÏÇÒ ¾ÆÀÌÅÛ¸íÀ» ÀÔ·ÂÇÏ¼¼¿ä(¹®ÀÚ):");
+				System.out.println("ë“±ë¡í•  ì•„ì´í…œëª…ì„ ì…ë ¥í•˜ì„¸ìš”(ë¬¸ì):");
 				String name = scan.nextLine();
 				
 				/**
-				 * trueÀÏ ½Ã Á¦´ë·Î µî·Ï ¿Ï·á
+				 * trueì¼ ì‹œ ì œëŒ€ë¡œ ë“±ë¡ ì™„ë£Œ
 				 */
 				if ( service.create(name) ) {
-					System.out.println(name + "ÀÌ(°¡) µî·ÏµÇ¾ú½À´Ï´Ù.");
+					System.out.println(name + "ì´(ê°€) ë“±ë¡ë˜ì—ˆìŠµë‹ˆë‹¤.");
 				}
 			}
 			/**
-			 * ¼öÁ¤
+			 * ìˆ˜ì •
 			 */
 			else if (menu == 2) {
 				
-				printItemTypeMenu();
-				System.out.println("¼öÁ¤ÇÒ ¸Ş´º Å¸ÀÔÀ» ÀÔ·ÂÇÏ¼¼¿ä:");
+				control.printItemTypeMenu();
+				System.out.println("ìˆ˜ì •í•  ë©”ë‰´ íƒ€ì…ì„ ì…ë ¥í•˜ì„¸ìš”:");
 				
 				/**
-				 * key: °í°´ÀÇ ÀÔ·Â °ª
-				 * ÇØ´ç key·Î À½·á ¼±º°.
+				 * key: ê³ ê°ì˜ ì…ë ¥ ê°’
+				 * í•´ë‹¹ keyë¡œ ìŒë£Œ ì„ ë³„.
 				 */
 				int index = scan.nextInt();
 				scan.nextLine();
@@ -114,41 +116,41 @@ public class MenuMgntController {
 				int key = scan.nextInt();
 				scan.nextLine();
 				TodoVO todoVO = service.read(key);
-				//TODO Ãâ·Â¹®
+				//TODO ì¶œë ¥ë¬¸
 				System.out.println(todoVO.getItemName());
 				
 			}
 			else if (menu == 3) {
 				List<TodoVO> todoList = service.readAll();
-				//TODO Ãâ·Â¹®
+				//TODO ì¶œë ¥ë¬¸
 				//for (TodoVO todoli)
 				
 				
 			}
 			else if (menu == 4) {
-				System.out.println("¼öÁ¤ÇÒ TODO Key¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+				System.out.println("ìˆ˜ì •í•  TODO Keyë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 				int key = scan.nextInt();
 				scan.nextLine();
 				
 				TodoVO todo = service.read(key);
 				if (todo == null) {
-					System.out.println("¾ÆÀÌÅÛÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+					System.out.println("ì•„ì´í…œì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 				}
 				else {
 					
 					boolean isSuccess = false;
 					
 					if (todo.isSuccess()) {
-						// ÀÌ¹Ì ¿Ï·áµÈ °Ç
-						System.out.println("ÀÌ¹Ì ¿Ï·áµÈ °ÇÀÔ´Ï´Ù. ¹Ì¿Ï·á·Î º¯°æÇÒ±î¿ä? (Y/N");
+						// ì´ë¯¸ ì™„ë£Œëœ ê±´
+						System.out.println("ì´ë¯¸ ì™„ë£Œëœ ê±´ì…ë‹ˆë‹¤. ë¯¸ì™„ë£Œë¡œ ë³€ê²½í• ê¹Œìš”? (Y/N");
 						String yn = scan.nextLine();
 						if (yn.equalsIgnoreCase("Y")) {
 							isSuccess = service.update(key, false);
 						}
 					}
 					else {
-						// ¿Ï·áµÇÁö ¾ÊÀº °Ç
-						System.out.println("¹Ì¿Ï·áµÈ °ÇÀÔ´Ï´Ù. ¿Ï·á·Î º¯°æÇÒ±î¿ä? (Y/N)");
+						// ì™„ë£Œë˜ì§€ ì•Šì€ ê±´
+						System.out.println("ë¯¸ì™„ë£Œëœ ê±´ì…ë‹ˆë‹¤. ì™„ë£Œë¡œ ë³€ê²½í• ê¹Œìš”? (Y/N)");
 						String yn = scan.nextLine();
 						if (yn.equalsIgnoreCase("Y")) {
 							isSuccess = service.update(key, true);
@@ -156,7 +158,7 @@ public class MenuMgntController {
 					}
 					
 					if (isSuccess) {
-						System.out.println("Ã³¸®µÇ¾ú½À´Ï´Ù.");
+						System.out.println("ì²˜ë¦¬ë˜ì—ˆìŠµë‹ˆë‹¤.");
 					}		
 				}
 				
@@ -171,13 +173,11 @@ public class MenuMgntController {
 				
 			}
 			/**
-			 * Á¾·á: 1~6 ÀÌ¿ÜÀÇ ¼ıÀÚ ÀÔ·Â ½Ã
+			 * ì¢…ë£Œ: 1~6 ì´ì™¸ì˜ ìˆ«ì ì…ë ¥ ì‹œ
 			 */
 			else {
 				break;
 			}
-			
-			
 		}
 	}
 }

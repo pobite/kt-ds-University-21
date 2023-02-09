@@ -64,8 +64,20 @@ public class ForTest2 {
 			arr[i] = random.nextInt(50) + 1;
 		}
 		
+		
 		for (int i = 0; i < arr.length; i++) {
 			System.out.println(arr[i]);
+		}
+		
+		/**
+		 * 3의 배수인 것과 0이 아닐 때 출력.
+		 */
+		
+		for (int i = 0; i < arr.length; i++) {
+			
+			if (arr[i] % 3 == 0 && arr[i] != 0) {
+				System.out.println(arr[i]);
+			}
 		}
 		
 	}

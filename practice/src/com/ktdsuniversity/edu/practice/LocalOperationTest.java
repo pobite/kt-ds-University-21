@@ -60,6 +60,5 @@ public class LocalOperationTest {
 		else if (score < 60 && score >= 0 ) {
 			grade = "F";
 		}
-
 	}
 }

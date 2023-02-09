@@ -1,6 +1,6 @@
 package com.ktdsuniversity.edu.practice;
 
-public class boolenaTest {
+public class BoolenaTest {
 
 	
 	public static void main(String[] args) {

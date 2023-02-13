@@ -15,7 +15,6 @@ public class Street {
 	}
 	
 	public static void main(String[] args) {
-		
 		GasStation gasStation = new GasStation();
 		Customer customer = new Customer();
 		customer.setFuel(new Fuel(FuelType.DIESEL, 50));

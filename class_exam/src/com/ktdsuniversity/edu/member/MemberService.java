@@ -16,11 +16,13 @@ public class MemberService {
 		System.out.println("회원가입");
 	}
 	
-	public void login() {
+	private void login() {
 		System.out.println("로그인");
 	}
 	
-	public void quit() {
+	// default
+	// 자기 패키지 내부에서만 접근 가능.
+	void quit() {
 		System.out.println("탈퇴");
 	}
 }

@@ -1,5 +1,7 @@
 package com.ktdsuniversity.edu.infext;
 
+import java.util.List;
+
 public class Main {
 	
 	public static void memberManage(MemberService memberService) {
@@ -33,6 +35,9 @@ public class Main {
 		memberManage(vipMemberService);
 		
 	
+		List<E>
+		
+		
 		
 		
 //		/**

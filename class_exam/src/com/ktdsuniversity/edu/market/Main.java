@@ -13,6 +13,7 @@ public class Main {
 				// 판매자에게 5개 산다.
 		buyer.buy(seller, 5);
 		
+	
 		
 	}
 }

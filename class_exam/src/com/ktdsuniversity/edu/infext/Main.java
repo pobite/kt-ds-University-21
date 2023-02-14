@@ -33,11 +33,7 @@ public class Main {
 
 		memberManage(memberService);
 		memberManage(vipMemberService);
-		
-	
-		List<E>
-		
-		
+
 		
 		
 //		/**

@@ -45,7 +45,5 @@ public class Main {
 		Animal elephant = new Elephant("긴 코");
 		run(elephant);
 		
-		
-		
 	}
 }

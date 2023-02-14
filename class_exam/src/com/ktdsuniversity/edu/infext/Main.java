@@ -2,18 +2,24 @@ package com.ktdsuniversity.edu.infext;
 
 public class Main {
 	
-	// 인터페이스가 두 개니깐, 메소드도 두 개로 만들어 보자..
-	// addPoint() 두 개를 나눴다고 생각.
 	public static void memberManage(MemberService memberService) {
 		memberService.regist();
 		memberService.updateMyInfo();
 		memberService.unregist();
-	}
-	public static void vipMemberManage(VipMemberService memberService) {
-		memberService.regist();
-		memberService.updateMyInfo();
-		memberService.addPoint(50);
+		
+//		if (memberService instanceof VipMemberService) {
+//			
+//			// 상속 받은 자식이 부모한테도 갈 수 있음
+//			// 하지만 type casting 필요
+////			VipMemberService vipMemberService = (VipMemberService) memberService;
+////			vipMemberService.addPoint(50);
+//			
+//			((VipMemberService) memberService).addPoint(50);
+//			
+//		}
+		
 		memberService.unregist();
+		
 	}
 
 	
@@ -24,11 +30,9 @@ public class Main {
 		MemberService vipMemberService = new VipMemberServiceImpl();
 
 		memberManage(memberService);
-		vipMemberManage(vipMemberService);
+		memberManage(vipMemberService);
 		
 	
-		
-		
 		
 		
 //		/**

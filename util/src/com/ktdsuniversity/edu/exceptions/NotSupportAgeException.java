@@ -10,6 +10,5 @@ public class NotSupportAgeException extends RuntimeException{
 	
 	public NotSupportAgeException(String message) {
 		super(message);
-	}
-	
+	}	
 }

@@ -35,7 +35,7 @@ public class FileWriter {
 		File textFile = new File("C:\\logs");
 		OutputStream fos = null;
 		createNewFileThrowsRuntimeException();
-		createNewFileThrowsRuntimeException2();
+//		createNewFileThrowsRuntimeException2();
 		if (textFile.isDirectory()) {
 
 			try {
